@@ -1,7 +1,6 @@
 {
 	"name": "bleicker/container",
 	"require": {
-		"bleicker/exception": "~1.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "*"
