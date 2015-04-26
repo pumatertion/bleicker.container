@@ -1,0 +1,25 @@
+{
+	"name": "bleicker/container",
+	"require": {
+		"bleicker/exception": "~1.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "*"
+	},
+	"authors": [
+		{
+			"name": "Carsten Bleicker",
+			"email": "carsten@bleicker.de"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Bleicker\\Container\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\Bleicker\\Container\\": "tests"
+		}
+	}
+}
