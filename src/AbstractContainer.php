@@ -2,6 +2,8 @@
 
 namespace Bleicker\Container;
 
+use Bleicker\Container\Exception\AliasAlreadyExistsException;
+
 /**
  * Class AbstractContainer
  *
@@ -9,6 +11,9 @@ namespace Bleicker\Container;
  */
 abstract class AbstractContainer {
 
+	/**
+	 * @var array
+	 */
 	protected static $storage = [];
 
 	/**
@@ -25,8 +30,12 @@ abstract class AbstractContainer {
 	 * @param string $alias
 	 * @param mixed $data
 	 * @return static
+	 * @throws AliasAlreadyExistsException
 	 */
 	public static function add($alias, $data) {
+		if (static::has($alias)) {
+			throw new AliasAlreadyExistsException('The alias "' . $alias . '" already exists. If you want to overwrite it please do first: \\' . static::class . '::remove(\'' . $alias . '\');', 1431000461);
+		}
 		static::$storage[$alias] = $data;
 		return new static;
 	}
@@ -53,7 +62,7 @@ abstract class AbstractContainer {
 	/**
 	 * @return static
 	 */
-	public static function prune(){
+	public static function prune() {
 		static::$storage = [];
 		return new static;
 	}

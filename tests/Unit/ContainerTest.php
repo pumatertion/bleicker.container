@@ -86,4 +86,13 @@ class ContainerTest extends UnitTestCase {
 		$this->assertEquals('OtherContainer', OtherContainer::get('foo'));
 		$this->assertEquals('InheritContainer', InheritContainer::get('foo'));
 	}
+
+	/**
+	 * @test
+	 * @expectedException \Bleicker\Container\Exception\AliasAlreadyExistsException
+	 */
+	public function noDefaultOverwriteOfAlias(){
+		TestContainer::add('foo', 'bar');
+		TestContainer::add('foo', 'baz');
+	}
 }
