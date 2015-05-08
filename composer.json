@@ -1,5 +1,6 @@
 {
 	"name": "bleicker/container",
+	"type": "library",
 	"require": {
 		"bleicker/exception": "*"
 	},
